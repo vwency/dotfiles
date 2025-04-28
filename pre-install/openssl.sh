@@ -14,7 +14,7 @@ source ~/.bashrc
 
 tar -xvzf openssl-3.5.0.tar.gz
 cd openssl-3.5.0
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
+./config --prefix=/usr/local/openssl --libdir=lib --openssldir=/usr/local/openssl
 make
 sudo make install
 echo "export PATH=/usr/local/openssl/bin:$PATH" >> ~/.bashrc
