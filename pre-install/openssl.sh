@@ -1,21 +1,12 @@
-sudo apt update
-sudo apt install -y git gcc make cmake autoconf libtool
-git clone --depth 1 https://github.com/quictls/openssl.git
-cd openssl
-./config --prefix=/usr/local/openssl-quic --openssldir=/usr/local/openssl-quic
-make -j$(nproc)
-sudo make install
-echo 'export PATH=/usr/local/openssl-quic/bin:$PATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/local/openssl-quic/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
-source ~/.bashrc
+git clone --quiet --depth=1 -b openssl-$OPENSSL_VERSION https://github.com/openssl/openssl
 
 
 -------------------------------
-
 tar -xvzf openssl-3.5.0.tar.gz
 cd openssl-3.5.0
 ./config --prefix=/usr/local/openssl --libdir=lib --openssldir=/usr/local/openssl
 make
 sudo make install
-echo "export PATH=/usr/local/openssl/bin:$PATH" >> ~/.bashrc
+echo 'export PATH=/usr/local/openssl/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/openssl/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
