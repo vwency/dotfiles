@@ -10,3 +10,7 @@ sudo make install
 echo 'export PATH=/usr/local/openssl/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/openssl/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
+
+
+---------------------------------
+sudo ldconfig /usr/local/openssl/lib (optional)
