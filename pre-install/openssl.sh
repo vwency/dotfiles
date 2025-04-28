@@ -14,3 +14,9 @@ source ~/.bashrc
 
 ---------------------------------
 sudo ldconfig /usr/local/openssl/lib (optional)
+
+see 
+
+```  
+https://curl.se/docs/http3.html
+```
