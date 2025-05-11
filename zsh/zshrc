@@ -4,11 +4,9 @@ export GITLAB_TOKEN=""
 
 ZSH_THEME="awesomepanda"
 
-
 pugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
 
 alias zshconfig="mate ~/.zshrc"
 export DOCKER_HOST="unix:///var/run/docker.sock"
