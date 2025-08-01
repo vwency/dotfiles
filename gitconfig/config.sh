@@ -33,4 +33,46 @@ git config --global alias.fm "fetch origin master"
 
 git config --global credential.helper "cache"
 
+
+git config --global format.pretty "format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
+git config --global help.autocorrect 1
+git config --global color.ui true
+git config --global color.branch.current "yellow reverse"
+git config --global color.branch.local yellow
+git config --global color.branch.remote green
+git config --global color.status.added yellow
+git config --global color.status.changed green
+git config --global color.status.untracked red
+git config --global core.editor "vim"
+git config --global core.ignorecase false
+git config --global alias.tree "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+# Краткий статус
+git config --global alias.st "status -sb"
+# Последний коммит
+git config --global alias.last "log -1 HEAD --stat"
+# Быстрый коммит с сообщением
+git config --global alias.cm "commit -m"
+# Очистить untracked файлы
+git config --global alias.cleanup "!git clean -fd && git reset --hard"
+# Отменить последний коммит (но сохранить изменения)
+git config --global alias.undo "reset --soft HEAD^"
+# Просмотр изменений перед коммитом
+git config --global alias.dc "diff --cached"
+# Просмотр кто менял файл
+git config --global alias.blame "blame -w -M -C"
+# Слияние с fast-forward, если возможно
+git config --global alias.ff "merge --ff-only"
+# Перебазирование на основную ветку
+git config --global alias.rb "!git fetch origin && git rebase origin/main"
+
+
+# Ускорение работы с большими репозиториями
+git config --global core.preloadindex true
+git config --global core.fscache true
+git config --global gc.auto 256
+
+# Параллельная загрузка объектов
+git config --global submodule.fetchJobs 4
+
+
 echo "Successfully set up global git configuration."
