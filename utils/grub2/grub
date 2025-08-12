@@ -1,0 +1,9 @@
+GRUB_THEME=""/usr/share/grub/themes/Rappa_cn/theme.txt""
+GRUB_DEFAULT=0
+GRUB_TIMEOUT_STYLE=menu
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR=`( . /etc/os-release; echo ${NAME:-Ubuntu} ) 2>/dev/null || echo Ubuntu`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX=""
+GRUB_GFXPAYLOAD_LINUX=keep
+GRUB_GFXMODE=2560x1440
