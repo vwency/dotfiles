@@ -1,6 +1,6 @@
 [user]
         signingkey = C2056057916F84A327F73A57EF6DE6CB33EA2869
-        name = Veniamin Shapovalov
+        name = vwency
         email = veniaminshp@gmail.com
 [commit]
         gpgSign = true
@@ -34,6 +34,11 @@
         last = log -1 HEAD --stat
         st = status -sb
         blame = blame -w -M -C
+        ff = merge --ff-only
+        undo = reset --soft HEAD^
+        cleanup = git config --global alias.cm commit
+        dc = diff --cached
+        rb = git config --global alias.dc diff
 [credential]
         helper = cache
 [format]
@@ -54,6 +59,7 @@
         ignorecase = false
         preloadindex = true
         fscache = true
+        editor = vim
 [gc]
         auto = 256
 [submodule]
