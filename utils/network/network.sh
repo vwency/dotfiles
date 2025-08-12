@@ -1,10 +1,5 @@
 #!/bin/bash
 
-sudo apt install cpufrequtils  
-echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils  
-sudo systemctl restart cpufrequtils  
-
-
 SYSCTL_FILE="/etc/sysctl.d/custom.conf"
 
 if sysctl net.ipv4.tcp_available_congestion_control 2>/dev/null | grep -qw bbr2; then
@@ -41,4 +36,3 @@ EOF
 sudo sysctl --system
 
 echo "✅ Set up completed $SYSCTL_FILE"
-
