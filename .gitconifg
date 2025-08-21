@@ -1,11 +1,11 @@
 [user]
-        signingkey = C2056057916F84A327F73A57EF6DE6CB33EA2869
-        name = vwency
-        email = veniaminshp@gmail.com
+	signingkey = 29E1DD0E4C327930
+	name = vwency
+	email = veniaminshp@gmail.com
 [commit]
-        gpgSign = true
+	gpgsign = true
 [gpg]
-        program = /usr/bin/gpg
+	program = gpg
 [pull]
         rebase = false
 [gui]
