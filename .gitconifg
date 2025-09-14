@@ -39,11 +39,12 @@
     postBuffer = 1048576000
 
 [alias]
-    autopushcm = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
+    pushcm = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
     fm = fetch --all
     amendpush = !git add . && git commit --amend --no-edit && git push -f
     tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     cm = commit -m
+    cb = checkout -b
     last = log -1 HEAD --stat
     st = status -sb
     mg = merge
@@ -77,6 +78,7 @@
     fsckobjects = true
 
 [pack]
+    thread = 0
     windowMemory = 100m
     packSizeLimit = 2g
 
