@@ -1,0 +1,165 @@
+[user]
+    signingkey = BACBB7FAA2303659
+    name = vwency
+    email = veniaminshp@gmail.com
+
+[commit]
+    gpgsign = true
+    verbose = true
+
+[gpg]
+    program = gpg
+
+[pull]
+    rebase = false
+
+[gui]
+    pruneduringfetch = true
+
+[smartgit "submodule"]
+    fetchalways = false
+    update = true
+    initializenew = true
+
+[push]
+    recurseSubmodules = check
+    followTags = true
+    default = current
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[init]
+    defaultBranch = main
+
+[http]
+    postBuffer = 1048576000
+
+[alias]
+    autopushcm = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
+    fm = fetch --all
+    amendpush = !git add . && git commit --amend --no-edit && git push -f
+    tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    cm = commit -m
+    last = log -1 HEAD --stat
+    st = status -sb
+    mg = merge
+    blame = blame -w -M -C
+    ff = merge --ff-only
+    undo = reset --soft HEAD^
+    dc = diff --cached
+    stashes = stash list --stat
+    find = "!f() { git log --all --grep=\"$1\" --oneline; }; f"
+    save = stash push -m
+    lg = !git --no-pager log --oneline --graph --decorate --all
+    ap = add --patch
+    archive-branch = "!f() { git archive --format=tar.gz --prefix=${PWD##/}/ HEAD > ${PWD##/}-$(git rev-parse --short HEAD).tar.gz; }; f"
+
+[credential]
+    helper = cache
+
+[format]
+    pretty = format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+
+[help]
+    autocorrect = 1
+
+[transfer]
+    fsckobjects = true
+
+[fetch]
+    fsckobjects = true
+
+[receive]
+    fsckobjects = true
+
+[pack]
+    windowMemory = 100m
+    packSizeLimit = 2g
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[color]
+    ui = true
+
+[branch]
+    autosetupmerge = always
+    autosetuprebase = always
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = red
+
+[core]
+    mergeoptions = --no-edit
+    ignorecase = false
+    preloadindex = true
+    fscache = true
+    editor = vim
+    pager = delta
+
+[gc]
+    auto = 256
+
+[submodule]
+    fetchJobs = 4
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = line-numbers decorations
+    whitespace-error-style = 22 reverse
+    syntax-theme = Dracula
+    file-style = omit
+    hunk-header-style = file line-number syntax
+    navigate = true
+
+[merge]
+    conflictStyle = zdiff3
+
+[log]
+    decorate = auto
+    follow = true
+
+[feature]
+    manyFiles = true
+
+[index]
+    version = 4
+
+[maintenance]
+    repo = true
+
+[status]
+    relativePaths = true
+    showUntrackedFiles = no
+    submodulesummary = false
+
+[stash]
+    showStat = true
+
+[mergetool]
+    keepBackup = false
+    writeToTemp = true
+
+[difftool "vim"]
+    cmd = vim "$MERGED"
+    prompt = false
+
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE

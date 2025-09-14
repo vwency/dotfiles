@@ -1,0 +1,14 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    }
+  }
+]

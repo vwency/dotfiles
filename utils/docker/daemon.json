@@ -1,0 +1,9 @@
+{
+  "registry-mirrors": ["https://mirror.gcr.io"],
+  "default-address-pools": [
+    {
+      "base": "10.0.0.0/16",
+      "size": 24
+    }
+  ]
+}
