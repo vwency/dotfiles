@@ -1,8 +1,15 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:~/.spoofdpi/bin
 export GITLAB_TOKEN=""
 
-ZSH_THEME="awesomepanda"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 plugins=(git zsh-autosuggestions aws alias-finder argocd azure celery direnv docker docker-compose dotenv gpg-agent history history-substring-search kubectl node npm nvm python pyenv rust terraform vscode web-search yarn)
@@ -136,3 +143,6 @@ zstyle ':omz:plugins:alias-finder' cheaper yes
 bindkey '^I' expand-or-complete
 
 echo "🚀 Terminal ready!"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
