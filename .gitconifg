@@ -41,15 +41,22 @@
 [alias]
     pushcm = "!f() { git add . && git commit -m \"$*\" && git push; }; f"
     fm = fetch --all
+    cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
     amendpush = !git add . && git commit --amend --no-edit && git push -f
     tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     cm = commit -m
     cb = checkout -b
     last = log -1 HEAD --stat
+    size = count-objects -vH
+    contributors = shortlog -sn
+    new = "!f() { git log ${1:-origin/main}..HEAD --oneline; }; f"
+    wt = worktree
     st = status -sb
     mg = merge
     blame = blame -w -M -C
     ff = merge --ff-only
+    rebase-main = !git fetch origin && git rebase -i origin/main
+    rebase-master = !git fetch origin && git rebase -i origin/master
     undo = reset --soft HEAD^
     dc = diff --cached
     stashes = stash list --stat
@@ -76,6 +83,8 @@
 
 [receive]
     fsckobjects = true
+    denyCurrentBranch = updateInstead
+    denyDeleteCurrent = true
 
 [pack]
     thread = 0
@@ -105,6 +114,8 @@
 
 [core]
     mergeoptions = --no-edit
+    fsmonitor = true
+    untrackedCache = true
     ignorecase = false
     preloadindex = true
     fscache = true
@@ -140,6 +151,7 @@
 
 [index]
     version = 4
+    skipHash = false
 
 [maintenance]
     repo = true
@@ -165,3 +177,19 @@
 
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
+
+[remote "origin"]
+    prune = true
+
+[blame]
+    markUnblamableLines = true
+    markIgnoredLines = true
+
+[worktree]
+    guessRemote = true
+
+[progress]
+    update = 1
+
+[tag]
+    gpgSign = true
