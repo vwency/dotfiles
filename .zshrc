@@ -12,7 +12,36 @@ export GITLAB_TOKEN=""
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
-plugins=(git zsh-autosuggestions aws alias-finder argocd azure celery direnv docker docker-compose dotenv gpg-agent history history-substring-search kubectl node npm nvm python pyenv rust terraform vscode web-search yarn)
+plugins=(
+  git
+  zsh-autosuggestions
+  aws
+  alias-finder
+  argocd
+  azure
+  gh
+  celery
+  direnv
+  docker
+  docker-compose
+  dotenv
+  gpg-agent
+  history
+  history-substring-search
+  kubectl
+  node
+  npm
+  nvm
+  python
+  pyenv
+  rust
+  terraform
+  vscode
+  web-search
+  yarn
+  ssh-agent
+  vscode
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -139,6 +168,9 @@ zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
 zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
 zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
 zstyle ':omz:plugins:alias-finder' cheaper yes
+
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent helper ksshaskpass
 
 bindkey '^I' expand-or-complete
 

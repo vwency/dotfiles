@@ -1,0 +1,39 @@
+{
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "workbench.productIconTheme": "fluent-icons",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "git.autofetch": true,
+    "git.blame.editorDecoration.enabled": true,
+    "workbench.iconTheme": "eq-material-theme-icons-light",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "convertCSSUnits.baseFontSize": 16,
+    "convertCSSUnits.baseWidth": 1920,
+    "convertCSSUnits.baseHeight": 1080,
+    "convertCSSUnits.unit": "vh",
+    "px-to-viewport.viewportWidth": 1920,
+    "px-to-viewport.viewportHeight": 1080,
+    "px-to-viewport.rootFontSize": 16,
+    "terminal.integrated.fontFamily": "MesloLGS Nerd Font"
+}
