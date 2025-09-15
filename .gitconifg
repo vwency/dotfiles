@@ -39,6 +39,7 @@
     postBuffer = 1048576000
 
 [alias]
+    quick = "!f() { git add . && git commit -m \"Quick commit: $(date +'%Y-%m-%d %H:%M:%S')\" && git push; }; f"
     pushcm = "!f() { git add . && git commit -m \"$*\" && git push; }; f"
     fm = fetch --all
     cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
