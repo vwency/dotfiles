@@ -18,8 +18,58 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias kdel='kubectl delete'
+alias kl='kubectl logs -f'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get services'
+alias kgd='kubectl get deployments'
+alias kns='kubectl config set-context --current --namespace'
+alias kctx='kubectl config use-context'
+
+alias gst='git status -sb'
+alias glog='git log --oneline --graph --decorate --all'
+alias gcom='git checkout main || git checkout master'
+alias gcod='git checkout develop'
+alias gpo='git push origin'
+alias gpom='git push origin main || git push origin master'
+alias grh='git reset --hard'
+alias grs='git reset --soft'
+alias gcane='git commit --amend --no-edit'
+alias gwip='git add -A && git commit -m "WIP"'
+alias gunwip='git log -n 1 | grep -q -c "WIP" && git reset HEAD~1'
+
+
+alias dps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"'
+alias dpsa='docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"'
+alias dimg='docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"'
+alias dstop='docker stop $(docker ps -q)'
+alias dclean='docker system prune -f'
+alias dlog='docker logs -f'
+alias dexec='docker exec -it'
+
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+setopt CORRECT
+setopt CORRECT_ALL
+setopt PROMPT_SUBST
+
+
 export DOCKER_HOST="unix:///var/run/docker.sock"
 export EDITOR=vim
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
 eval "$(direnv hook zsh)"
 
 
@@ -69,6 +119,14 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+
 
 zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
 zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
@@ -76,3 +134,5 @@ zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
 zstyle ':omz:plugins:alias-finder' cheaper yes
 
 bindkey '^I' expand-or-complete
+
+echo "🚀 Terminal ready!"
