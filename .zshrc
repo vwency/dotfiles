@@ -5,7 +5,7 @@ export GITLAB_TOKEN=""
 ZSH_THEME="awesomepanda"
 
 
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions aws alias-finder argocd azure celery direnv docker docker-compose dotenv gpg-agent history history-substring-search kubectl node npm nvm python pyenv rust terraform vscode web-search yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,5 +69,11 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes
 
 bindkey '^I' expand-or-complete
