@@ -50,14 +50,19 @@
     last = log -1 HEAD --stat
     size = count-objects -vH
     contributors = shortlog -sn
+    rename = commit --amend
     new = "!f() { git log ${1:-origin/main}..HEAD --oneline; }; f"
     wt = worktree
     st = status -sb
     mg = merge
     blame = blame -w -M -C
     ff = merge --ff-only
+    search = "!f() { git log -S\"$1\" --oneline; }; f"
+    churn = "!git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort -n | tail"
+    nb = "!f() { git checkout main && git pull && git checkout -b \"$1\"; }; f"
     rebase-main = !git fetch origin && git rebase -i origin/main
     rebase-master = !git fetch origin && git rebase -i origin/master
+    big-files = "!git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | sed -n 's/^blob //p' | sort --numeric-sort --key=2 | tail -10"
     undo = reset --soft HEAD^
     dc = diff --cached
     stashes = stash list --stat
@@ -89,7 +94,7 @@
 
 [pack]
     thread = 0
-    windowMemory = 100m
+    windowMemory = 2g
     packSizeLimit = 2g
 
 [rerere]
@@ -114,6 +119,10 @@
     untracked = red
 
 [core]
+    precomposeUnicode = true
+    quotepath = false
+    autocrlf = input
+    bigFileThreshold = 2048m
     mergeoptions = --no-edit
     fsmonitor = true
     untrackedCache = true
@@ -141,6 +150,7 @@
     navigate = true
 
 [merge]
+    keepBackup = false
     conflictStyle = zdiff3
 
 [log]
@@ -152,6 +162,7 @@
 
 [index]
     version = 4
+    threads = true
     skipHash = false
 
 [maintenance]
