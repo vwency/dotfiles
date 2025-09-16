@@ -45,7 +45,7 @@
     cleanup = "!git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d"
     amendpush = !git add . && git commit --amend --no-edit && git push -f
     tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    cm = commit -m
+    cm = "!f() { git add . && git commit -m \"$*\"; }; f"
     cb = checkout -b
     last = log -1 HEAD --stat
     size = count-objects -vH
