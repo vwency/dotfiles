@@ -7,5 +7,8 @@
     "mode": "dark",
     "light": "One Light",
     "dark": "Catppuccin Frappé"
+  },
+  "terminal": {
+    "font_family": "MesloLGL Nerd Font"
   }
 }
