@@ -1,17 +1,12 @@
-# zsh config shortcuts
-alias zshconfig="mate ~/.zshrc"
-
-# navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# grep
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-# kubectl
+
 alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
@@ -23,7 +18,7 @@ alias kgd='kubectl get deployments'
 alias kns='kubectl config set-context --current --namespace'
 alias kctx='kubectl config use-context'
 
-# git
+
 alias gst='git status -sb'
 alias glog='git log --oneline --graph --decorate --all'
 alias gcom='git checkout main || git checkout master'
@@ -36,7 +31,7 @@ alias gcane='git commit --amend --no-edit'
 alias gwip='git add -A && git commit -m "WIP"'
 alias gunwip='git log -n 1 | grep -q -c "WIP" && git reset HEAD~1'
 
-# docker
+
 alias dps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"'
 alias dpsa='docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"'
 alias dimg='docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}"'
@@ -45,5 +40,5 @@ alias dclean='docker system prune -f'
 alias dlog='docker logs -f'
 alias dexec='docker exec -it'
 
-# nix
+
 alias sn='nix develop --extra-experimental-features "nix-command flakes"'

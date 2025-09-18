@@ -1,0 +1,53 @@
+export ZSH="$HOME/.oh-my-zsh"
+export GITLAB_TOKEN=""
+
+export DOCKER_HOST="unix:///var/run/docker.sock"
+export EDITOR=vim
+
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245,underline"
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+
+export PATH="\
+/usr/local/openssl/bin:\
+/usr/local/sbin:\
+/usr/local/bin:\
+/usr/sbin:\
+/usr/bin:\
+/sbin:\
+/bin:\
+/usr/games:\
+/usr/local/games:\
+/snap/bin:\
+$HOME/protoc/bin:\
+$HOME/.local/bin:\
+/opt/istio-1.25.0/bin:\
+$(go env GOPATH)/bin:\
+${PNPM_HOME}:\
+$PATH"
+
+export LD_LIBRARY_PATH=/usr/local/openssl/lib:$LD_LIBRARY_PATH
+
+export NVM_DIR="$HOME/.nvm"
+
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+
+eval "$(direnv hook zsh)"
+
+
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"
+if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then
+  . "${___MY_VMOPTIONS_SHELL_FILE}"
+fi
