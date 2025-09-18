@@ -122,7 +122,7 @@
     precomposeUnicode = true
     quotepath = false
     autocrlf = input
-    bigFileThreshold = 2048m
+    bigFileThreshold = 1m
     mergeoptions = --no-edit
     fsmonitor = true
     untrackedCache = true
