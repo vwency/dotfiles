@@ -1,0 +1,10 @@
+[[language]]
+name = "rust"
+auto-format = true
+
+[language.server]
+command = "rust-analyzer"
+
+[language.formatter]
+command = "rustfmt"
+args = ["--edition", "2021"]
