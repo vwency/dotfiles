@@ -39,6 +39,6 @@ alias dstop='docker stop $(docker ps -q)'
 alias dclean='docker system prune -f'
 alias dlog='docker logs -f'
 alias dexec='docker exec -it'
-
+alias drnit='docker run -it --rm '
 
 alias sn='nix develop --extra-experimental-features "nix-command flakes"'
