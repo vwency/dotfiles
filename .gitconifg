@@ -24,7 +24,7 @@
 [push]
     recurseSubmodules = check
     followTags = true
-    default = current
+    default = simple
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -103,10 +103,6 @@
 
 [color]
     ui = true
-
-[branch]
-    autosetupmerge = always
-    autosetuprebase = always
 
 [color "branch"]
     current = yellow reverse
