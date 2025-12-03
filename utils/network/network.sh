@@ -2,19 +2,12 @@
 
 SYSCTL_FILE="/etc/sysctl.d/custom.conf"
 
-if sysctl net.ipv4.tcp_available_congestion_control 2>/dev/null | grep -qw bbr2; then
-  CONG_CONTROL="net.ipv4.tcp_congestion_control=bbr2"
-else
-  echo "bbr2 is not supported"
-  CONG_CONTROL=""
-fi
-
 sudo tee "$SYSCTL_FILE" > /dev/null <<EOF
 net.core.rmem_max=16777216
 net.core.wmem_max=16777216
-net.ipv4.tcp_rmem=4096 87380 16777216
-net.ipv4.tcp_wmem=4096 65536 16777216
-$CONG_CONTROL
+net.ipv4.tcp_rmem=4096 87380 33554432
+net.ipv4.tcp_wmem=4096 87380 33554432
+net.ipv4.tcp_congestion_control=bbr2
 net.ipv4.tcp_fastopen=3
 net.ipv4.tcp_mtu_probing=1
 
