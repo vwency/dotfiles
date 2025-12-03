@@ -13,9 +13,9 @@ cp bbr/net/ipv4/tcp_bbr.c net/ipv4/
 cp bbr/net/ipv4/Kconfig net/ipv4/Kconfig
 
 
-# Добавьте строку для BBR2
+
 nano net/ipv4/Makefile
-Добавьте после строки с tcp_bbr.o:
+# after tcp_bbr.o paste:
 makefileobj-$(CONFIG_TCP_CONG_BBR2) += tcp_bbr2.o
 
 cp bbr/include/net/tcp.h include/net/tcp.h
