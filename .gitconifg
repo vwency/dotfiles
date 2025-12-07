@@ -201,3 +201,6 @@
 
 [tag]
     gpgSign = true
+
+[rebase]
+    gpgSign = false
