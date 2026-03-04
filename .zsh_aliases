@@ -42,3 +42,21 @@ alias dexec='docker exec -it'
 alias drnit='docker run -it --rm '
 
 alias sn='nix develop --extra-experimental-features "nix-command flakes"'
+
+
+alias ydev='yarn dev'
+alias ybuild='yarn build'
+alias yba='yarn build:affected --base=main --head=HEAD'
+alias ystart='yarn start'
+alias yclean='yarn clean'
+alias ygraph='yarn graph'
+alias ytc='yarn typecheck'
+
+
+alias nxps='yarn nx show projects'
+alias nxpa='yarn nx show project'
+alias nxg='yarn nx graph'
+alias nxga='yarn nx affected --graph'
+alias nxda='yarn nx affected --target=build --dry-run'
+alias nxba='yarn nx affected --target=build --base=main --head=HEAD'
+alias nxbad='yarn build:affected'
