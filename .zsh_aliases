@@ -60,3 +60,5 @@ alias nxga='yarn nx affected --graph'
 alias nxda='yarn nx affected --target=build --dry-run'
 alias nxba='yarn nx affected --target=build --base=main --head=HEAD'
 alias nxbad='yarn build:affected'
+
+alias gensw='php artisan l5-swagger:generate'
