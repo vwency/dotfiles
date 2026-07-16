@@ -61,4 +61,8 @@ alias nxda='yarn nx affected --target=build --dry-run'
 alias nxba='yarn nx affected --target=build --base=main --head=HEAD'
 alias nxbad='yarn build:affected'
 
-alias gensw='php artisan l5-swagger:generate'
+alias phpgensw='php artisan l5-swagger:generate'
+
+alias phptree='tree -I "vendor|node_modules|storage|bootstrap/cache|public/build|.git|coverage|.idea|.vscode"'
+alias phprn='php artisan serve'
+alias mfr='php artisan make:filament-resource'
