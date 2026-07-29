@@ -102,3 +102,10 @@ alias creq='composer require'
 alias mfp='php artisan make:filament-page'
 alias mfw='php artisan make:filament-widget'
 alias mfrel='php artisan make:filament-relation-manager'
+
+alias pint='./vendor/bin/pint'
+alias pintt='./vendor/bin/pint --test'
+
+# PHP-CS-Fixer
+alias csfix='./vendor/bin/php-cs-fixer fix app/ --rules=no_unused_imports'
+alias cscheck='./vendor/bin/php-cs-fixer fix app/ --rules=no_unused_imports --dry-run --diff'
